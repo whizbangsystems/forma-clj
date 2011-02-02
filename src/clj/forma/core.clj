@@ -1,6 +1,6 @@
 (ns forma.core
   (:use cascalog.api)
-  (:import [forma WholeFile])
+  (:import [forma WholeFile AddYearFunction])
   (:require [cascalog [vars :as v] [ops :as c] [workflow :as w]]
             [forma [hdf :as h] [rain :as r]]))
 
@@ -24,7 +24,6 @@
   [dir]
   (let [source (hfs-wholefile dir)]
     (<- [?file] (source ?file))))
-
 
 ;; ##Subqueries
 
@@ -86,15 +85,26 @@
   (let [nasa-files (unpacked-modis nasa-dir)]
     (?<- (stdout) [?tileid ?count]
          (nasa-files ?dataset ?unpacked)
-         (add-metadata ?unpacked ["TileID"] :> ?tileid)
+         (add-metadata ?unpacked [["TileID"]] :> ?tileid)
          (c/count ?count))))
+
+(defn files-with-name
+  "Query to return all files in the supplied directory, along with filenames."
+  [dir]
+  (let [source (hfs-wholefile dir)]
+    (?<- (stdout) [?filename]
+         (source ?file)
+         ((AddYearFunction.) ?file :> ?filename))))
 
 (defn rain-months
   "Test query! Returns the count of output data sets for each month, from
    0 to 11."
   [rain-dir]
-  (let [rain-files (all-files rain-dir)]
-    (?<- (stdout) [?month ?count]
-         (rain-files ?file)
-         (r/rain-months ?file :> ?month ?month-data)
+  (let [rain-files (files-with-name rain-dir)]
+    (?<- (stdout) [?filename ?count]
+         (rain-files ?file ?filename)         
+         ;; (r/rain-months ?file :> ?month ?month-data)
          (c/count ?count))))
+
+(defn rain-test []
+  (rain-months "Users/sritchie/Desktop/FORMA/RainTest/"))
