@@ -15,7 +15,7 @@
   trailing arguments. The third item is a documentation string to provide usage."
   [command]
   (cli command
-       ["-h" "--help" "Show this help message." :default false :flag true]
+       ["-h" "--help" "Show this help message." :default true :flag true]
        ["-l" "--list-operations" "List FORMA operations." :flag true]))
 
 (defn get-config
