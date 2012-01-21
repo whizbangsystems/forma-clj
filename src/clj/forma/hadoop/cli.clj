@@ -27,14 +27,13 @@
       (prn (format "Problem with file %s" file-path))
       (read-json (slurp file)))))
 
-(defn execute-op
+;; TODO: This stub function doesn't execute an operation yet!
+(defn  execute-op
   "Executes an operation using parameters in the configuration file."
   [op config-file-path]
-  (let [config (get-config config-file-path)]
-    ;; TODO: Execute operation.
-    (if (nil? config)
-      (prn (format "Failed to execute operation %s" op))
-      (prn (format "Operation: %s, Config: %s" op config)))))
+  (if-let [config (get-config config-file-path)]
+    (prn (format "Operation: %s, Config: %s" op config))
+    (prn (format "Failed to execute operation %s" op))))
 
 (defn -main
   "CLI entry point. It's wired up to read config files in the /dev directory.
