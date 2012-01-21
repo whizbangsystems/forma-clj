@@ -22,10 +22,9 @@
   "Returns a map of configuration options given a path to a JSON config file,
   or nil if there is a problem with the file."
   [file-path]
-  (let [file (io/as-file (io/resource file-path))]
-    (if (nil? file)
-      (prn (format "Problem with file %s" file-path))
-      (read-json (slurp file)))))
+  (if-let [file (io/as-file (io/resource file-path))]
+      (read-json (slurp file))
+      (prn (format "Problem with file %s" file-path))))
 
 ;; TODO: This stub function doesn't execute an operation yet!
 (defn  execute-op
