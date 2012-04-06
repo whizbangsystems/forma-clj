@@ -1,0 +1,8 @@
+library(CellularAutomaton)
+ca = CellularAutomaton(t = 100)
+ca$plot()
+ca = CellularAutomaton(n = 110, t = 150, seed = c(1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0), bg = -1)
+setwd("~/Dropbox/github/reddmetrics/cellular-automaton/")
+png("test.png")
+ca$plot(col = c("white", "darkblue"))
+dev.off()
