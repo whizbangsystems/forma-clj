@@ -30,27 +30,31 @@ import org.slf4j.LoggerFactory;
 
 public class DataValue extends org.apache.thrift.TUnion<DataValue, DataValue._Fields> {
   private static final org.apache.thrift.protocol.TStruct STRUCT_DESC = new org.apache.thrift.protocol.TStruct("DataValue");
-  private static final org.apache.thrift.protocol.TField LONG_VAL_FIELD_DESC = new org.apache.thrift.protocol.TField("longVal", org.apache.thrift.protocol.TType.I64, (short)1);
-  private static final org.apache.thrift.protocol.TField LONGS_FIELD_DESC = new org.apache.thrift.protocol.TField("longs", org.apache.thrift.protocol.TType.STRUCT, (short)2);
-  private static final org.apache.thrift.protocol.TField DOUBLE_VAL_FIELD_DESC = new org.apache.thrift.protocol.TField("doubleVal", org.apache.thrift.protocol.TType.DOUBLE, (short)3);
-  private static final org.apache.thrift.protocol.TField DOUBLES_FIELD_DESC = new org.apache.thrift.protocol.TField("doubles", org.apache.thrift.protocol.TType.STRUCT, (short)4);
-  private static final org.apache.thrift.protocol.TField FIRE_VAL_FIELD_DESC = new org.apache.thrift.protocol.TField("fireVal", org.apache.thrift.protocol.TType.STRUCT, (short)5);
-  private static final org.apache.thrift.protocol.TField TIME_SERIES_FIELD_DESC = new org.apache.thrift.protocol.TField("timeSeries", org.apache.thrift.protocol.TType.STRUCT, (short)6);
-  private static final org.apache.thrift.protocol.TField FIRE_SERIES_FIELD_DESC = new org.apache.thrift.protocol.TField("fireSeries", org.apache.thrift.protocol.TType.STRUCT, (short)7);
-  private static final org.apache.thrift.protocol.TField SHORTS_FIELD_DESC = new org.apache.thrift.protocol.TField("shorts", org.apache.thrift.protocol.TType.STRUCT, (short)8);
-  private static final org.apache.thrift.protocol.TField INTS_FIELD_DESC = new org.apache.thrift.protocol.TField("ints", org.apache.thrift.protocol.TType.STRUCT, (short)9);
+  private static final org.apache.thrift.protocol.TField DOUBLES_FIELD_DESC = new org.apache.thrift.protocol.TField("doubles", org.apache.thrift.protocol.TType.STRUCT, (short)1);
+  private static final org.apache.thrift.protocol.TField INTS_FIELD_DESC = new org.apache.thrift.protocol.TField("ints", org.apache.thrift.protocol.TType.STRUCT, (short)2);
+  private static final org.apache.thrift.protocol.TField LONGS_FIELD_DESC = new org.apache.thrift.protocol.TField("longs", org.apache.thrift.protocol.TType.STRUCT, (short)3);
+  private static final org.apache.thrift.protocol.TField SHORTS_FIELD_DESC = new org.apache.thrift.protocol.TField("shorts", org.apache.thrift.protocol.TType.STRUCT, (short)4);
+  private static final org.apache.thrift.protocol.TField DOUBLE_VAL_FIELD_DESC = new org.apache.thrift.protocol.TField("doubleVal", org.apache.thrift.protocol.TType.DOUBLE, (short)5);
+  private static final org.apache.thrift.protocol.TField FIRE_SERIES_FIELD_DESC = new org.apache.thrift.protocol.TField("fireSeries", org.apache.thrift.protocol.TType.STRUCT, (short)6);
+  private static final org.apache.thrift.protocol.TField FIRE_VAL_FIELD_DESC = new org.apache.thrift.protocol.TField("fireVal", org.apache.thrift.protocol.TType.STRUCT, (short)7);
+  private static final org.apache.thrift.protocol.TField INT_VAL_FIELD_DESC = new org.apache.thrift.protocol.TField("intVal", org.apache.thrift.protocol.TType.I32, (short)8);
+  private static final org.apache.thrift.protocol.TField LONG_VAL_FIELD_DESC = new org.apache.thrift.protocol.TField("longVal", org.apache.thrift.protocol.TType.I64, (short)9);
+  private static final org.apache.thrift.protocol.TField SHORT_VAL_FIELD_DESC = new org.apache.thrift.protocol.TField("shortVal", org.apache.thrift.protocol.TType.I16, (short)10);
+  private static final org.apache.thrift.protocol.TField TIME_SERIES_FIELD_DESC = new org.apache.thrift.protocol.TField("timeSeries", org.apache.thrift.protocol.TType.STRUCT, (short)11);
 
   /** The set of fields this struct contains, along with convenience methods for finding and manipulating them. */
   public enum _Fields implements org.apache.thrift.TFieldIdEnum {
-    LONG_VAL((short)1, "longVal"),
-    LONGS((short)2, "longs"),
-    DOUBLE_VAL((short)3, "doubleVal"),
-    DOUBLES((short)4, "doubles"),
-    FIRE_VAL((short)5, "fireVal"),
-    TIME_SERIES((short)6, "timeSeries"),
-    FIRE_SERIES((short)7, "fireSeries"),
-    SHORTS((short)8, "shorts"),
-    INTS((short)9, "ints");
+    DOUBLES((short)1, "doubles"),
+    INTS((short)2, "ints"),
+    LONGS((short)3, "longs"),
+    SHORTS((short)4, "shorts"),
+    DOUBLE_VAL((short)5, "doubleVal"),
+    FIRE_SERIES((short)6, "fireSeries"),
+    FIRE_VAL((short)7, "fireVal"),
+    INT_VAL((short)8, "intVal"),
+    LONG_VAL((short)9, "longVal"),
+    SHORT_VAL((short)10, "shortVal"),
+    TIME_SERIES((short)11, "timeSeries");
 
     private static final Map<String, _Fields> byName = new HashMap<String, _Fields>();
 
@@ -65,24 +69,28 @@ public class DataValue extends org.apache.thrift.TUnion<DataValue, DataValue._Fi
      */
     public static _Fields findByThriftId(int fieldId) {
       switch(fieldId) {
-        case 1: // LONG_VAL
-          return LONG_VAL;
-        case 2: // LONGS
-          return LONGS;
-        case 3: // DOUBLE_VAL
-          return DOUBLE_VAL;
-        case 4: // DOUBLES
+        case 1: // DOUBLES
           return DOUBLES;
-        case 5: // FIRE_VAL
-          return FIRE_VAL;
-        case 6: // TIME_SERIES
-          return TIME_SERIES;
-        case 7: // FIRE_SERIES
-          return FIRE_SERIES;
-        case 8: // SHORTS
-          return SHORTS;
-        case 9: // INTS
+        case 2: // INTS
           return INTS;
+        case 3: // LONGS
+          return LONGS;
+        case 4: // SHORTS
+          return SHORTS;
+        case 5: // DOUBLE_VAL
+          return DOUBLE_VAL;
+        case 6: // FIRE_SERIES
+          return FIRE_SERIES;
+        case 7: // FIRE_VAL
+          return FIRE_VAL;
+        case 8: // INT_VAL
+          return INT_VAL;
+        case 9: // LONG_VAL
+          return LONG_VAL;
+        case 10: // SHORT_VAL
+          return SHORT_VAL;
+        case 11: // TIME_SERIES
+          return TIME_SERIES;
         default:
           return null;
       }
@@ -125,24 +133,28 @@ public class DataValue extends org.apache.thrift.TUnion<DataValue, DataValue._Fi
   public static final Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> metaDataMap;
   static {
     Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> tmpMap = new EnumMap<_Fields, org.apache.thrift.meta_data.FieldMetaData>(_Fields.class);
-    tmpMap.put(_Fields.LONG_VAL, new org.apache.thrift.meta_data.FieldMetaData("longVal", org.apache.thrift.TFieldRequirementType.DEFAULT, 
-        new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.I64)));
-    tmpMap.put(_Fields.LONGS, new org.apache.thrift.meta_data.FieldMetaData("longs", org.apache.thrift.TFieldRequirementType.DEFAULT, 
-        new org.apache.thrift.meta_data.StructMetaData(org.apache.thrift.protocol.TType.STRUCT, LongArray.class)));
-    tmpMap.put(_Fields.DOUBLE_VAL, new org.apache.thrift.meta_data.FieldMetaData("doubleVal", org.apache.thrift.TFieldRequirementType.DEFAULT, 
-        new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.DOUBLE)));
     tmpMap.put(_Fields.DOUBLES, new org.apache.thrift.meta_data.FieldMetaData("doubles", org.apache.thrift.TFieldRequirementType.DEFAULT, 
         new org.apache.thrift.meta_data.StructMetaData(org.apache.thrift.protocol.TType.STRUCT, DoubleArray.class)));
-    tmpMap.put(_Fields.FIRE_VAL, new org.apache.thrift.meta_data.FieldMetaData("fireVal", org.apache.thrift.TFieldRequirementType.DEFAULT, 
-        new org.apache.thrift.meta_data.StructMetaData(org.apache.thrift.protocol.TType.STRUCT, FireTuple.class)));
-    tmpMap.put(_Fields.TIME_SERIES, new org.apache.thrift.meta_data.FieldMetaData("timeSeries", org.apache.thrift.TFieldRequirementType.DEFAULT, 
-        new org.apache.thrift.meta_data.StructMetaData(org.apache.thrift.protocol.TType.STRUCT, TimeSeries.class)));
-    tmpMap.put(_Fields.FIRE_SERIES, new org.apache.thrift.meta_data.FieldMetaData("fireSeries", org.apache.thrift.TFieldRequirementType.DEFAULT, 
-        new org.apache.thrift.meta_data.StructMetaData(org.apache.thrift.protocol.TType.STRUCT, FireSeries.class)));
-    tmpMap.put(_Fields.SHORTS, new org.apache.thrift.meta_data.FieldMetaData("shorts", org.apache.thrift.TFieldRequirementType.DEFAULT, 
-        new org.apache.thrift.meta_data.StructMetaData(org.apache.thrift.protocol.TType.STRUCT, ShortArray.class)));
     tmpMap.put(_Fields.INTS, new org.apache.thrift.meta_data.FieldMetaData("ints", org.apache.thrift.TFieldRequirementType.DEFAULT, 
         new org.apache.thrift.meta_data.StructMetaData(org.apache.thrift.protocol.TType.STRUCT, IntArray.class)));
+    tmpMap.put(_Fields.LONGS, new org.apache.thrift.meta_data.FieldMetaData("longs", org.apache.thrift.TFieldRequirementType.DEFAULT, 
+        new org.apache.thrift.meta_data.StructMetaData(org.apache.thrift.protocol.TType.STRUCT, LongArray.class)));
+    tmpMap.put(_Fields.SHORTS, new org.apache.thrift.meta_data.FieldMetaData("shorts", org.apache.thrift.TFieldRequirementType.DEFAULT, 
+        new org.apache.thrift.meta_data.StructMetaData(org.apache.thrift.protocol.TType.STRUCT, ShortArray.class)));
+    tmpMap.put(_Fields.DOUBLE_VAL, new org.apache.thrift.meta_data.FieldMetaData("doubleVal", org.apache.thrift.TFieldRequirementType.DEFAULT, 
+        new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.DOUBLE)));
+    tmpMap.put(_Fields.FIRE_SERIES, new org.apache.thrift.meta_data.FieldMetaData("fireSeries", org.apache.thrift.TFieldRequirementType.DEFAULT, 
+        new org.apache.thrift.meta_data.StructMetaData(org.apache.thrift.protocol.TType.STRUCT, FireSeries.class)));
+    tmpMap.put(_Fields.FIRE_VAL, new org.apache.thrift.meta_data.FieldMetaData("fireVal", org.apache.thrift.TFieldRequirementType.DEFAULT, 
+        new org.apache.thrift.meta_data.StructMetaData(org.apache.thrift.protocol.TType.STRUCT, FireTuple.class)));
+    tmpMap.put(_Fields.INT_VAL, new org.apache.thrift.meta_data.FieldMetaData("intVal", org.apache.thrift.TFieldRequirementType.DEFAULT, 
+        new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.I32)));
+    tmpMap.put(_Fields.LONG_VAL, new org.apache.thrift.meta_data.FieldMetaData("longVal", org.apache.thrift.TFieldRequirementType.DEFAULT, 
+        new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.I64)));
+    tmpMap.put(_Fields.SHORT_VAL, new org.apache.thrift.meta_data.FieldMetaData("shortVal", org.apache.thrift.TFieldRequirementType.DEFAULT, 
+        new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.I16)));
+    tmpMap.put(_Fields.TIME_SERIES, new org.apache.thrift.meta_data.FieldMetaData("timeSeries", org.apache.thrift.TFieldRequirementType.DEFAULT, 
+        new org.apache.thrift.meta_data.StructMetaData(org.apache.thrift.protocol.TType.STRUCT, TimeSeries.class)));
     metaDataMap = Collections.unmodifiableMap(tmpMap);
     org.apache.thrift.meta_data.FieldMetaData.addStructMetaDataMap(DataValue.class, metaDataMap);
   }
@@ -162,51 +174,9 @@ public class DataValue extends org.apache.thrift.TUnion<DataValue, DataValue._Fi
     return new DataValue(this);
   }
 
-  public static DataValue longVal(long value) {
-    DataValue x = new DataValue();
-    x.setLongVal(value);
-    return x;
-  }
-
-  public static DataValue longs(LongArray value) {
-    DataValue x = new DataValue();
-    x.setLongs(value);
-    return x;
-  }
-
-  public static DataValue doubleVal(double value) {
-    DataValue x = new DataValue();
-    x.setDoubleVal(value);
-    return x;
-  }
-
   public static DataValue doubles(DoubleArray value) {
     DataValue x = new DataValue();
     x.setDoubles(value);
-    return x;
-  }
-
-  public static DataValue fireVal(FireTuple value) {
-    DataValue x = new DataValue();
-    x.setFireVal(value);
-    return x;
-  }
-
-  public static DataValue timeSeries(TimeSeries value) {
-    DataValue x = new DataValue();
-    x.setTimeSeries(value);
-    return x;
-  }
-
-  public static DataValue fireSeries(FireSeries value) {
-    DataValue x = new DataValue();
-    x.setFireSeries(value);
-    return x;
-  }
-
-  public static DataValue shorts(ShortArray value) {
-    DataValue x = new DataValue();
-    x.setShorts(value);
     return x;
   }
 
@@ -216,55 +186,119 @@ public class DataValue extends org.apache.thrift.TUnion<DataValue, DataValue._Fi
     return x;
   }
 
+  public static DataValue longs(LongArray value) {
+    DataValue x = new DataValue();
+    x.setLongs(value);
+    return x;
+  }
+
+  public static DataValue shorts(ShortArray value) {
+    DataValue x = new DataValue();
+    x.setShorts(value);
+    return x;
+  }
+
+  public static DataValue doubleVal(double value) {
+    DataValue x = new DataValue();
+    x.setDoubleVal(value);
+    return x;
+  }
+
+  public static DataValue fireSeries(FireSeries value) {
+    DataValue x = new DataValue();
+    x.setFireSeries(value);
+    return x;
+  }
+
+  public static DataValue fireVal(FireTuple value) {
+    DataValue x = new DataValue();
+    x.setFireVal(value);
+    return x;
+  }
+
+  public static DataValue intVal(int value) {
+    DataValue x = new DataValue();
+    x.setIntVal(value);
+    return x;
+  }
+
+  public static DataValue longVal(long value) {
+    DataValue x = new DataValue();
+    x.setLongVal(value);
+    return x;
+  }
+
+  public static DataValue shortVal(short value) {
+    DataValue x = new DataValue();
+    x.setShortVal(value);
+    return x;
+  }
+
+  public static DataValue timeSeries(TimeSeries value) {
+    DataValue x = new DataValue();
+    x.setTimeSeries(value);
+    return x;
+  }
+
 
   @Override
   protected void checkType(_Fields setField, Object value) throws ClassCastException {
     switch (setField) {
-      case LONG_VAL:
-        if (value instanceof Long) {
-          break;
-        }
-        throw new ClassCastException("Was expecting value of type Long for field 'longVal', but got " + value.getClass().getSimpleName());
-      case LONGS:
-        if (value instanceof LongArray) {
-          break;
-        }
-        throw new ClassCastException("Was expecting value of type LongArray for field 'longs', but got " + value.getClass().getSimpleName());
-      case DOUBLE_VAL:
-        if (value instanceof Double) {
-          break;
-        }
-        throw new ClassCastException("Was expecting value of type Double for field 'doubleVal', but got " + value.getClass().getSimpleName());
       case DOUBLES:
         if (value instanceof DoubleArray) {
           break;
         }
         throw new ClassCastException("Was expecting value of type DoubleArray for field 'doubles', but got " + value.getClass().getSimpleName());
-      case FIRE_VAL:
-        if (value instanceof FireTuple) {
-          break;
-        }
-        throw new ClassCastException("Was expecting value of type FireTuple for field 'fireVal', but got " + value.getClass().getSimpleName());
-      case TIME_SERIES:
-        if (value instanceof TimeSeries) {
-          break;
-        }
-        throw new ClassCastException("Was expecting value of type TimeSeries for field 'timeSeries', but got " + value.getClass().getSimpleName());
-      case FIRE_SERIES:
-        if (value instanceof FireSeries) {
-          break;
-        }
-        throw new ClassCastException("Was expecting value of type FireSeries for field 'fireSeries', but got " + value.getClass().getSimpleName());
-      case SHORTS:
-        if (value instanceof ShortArray) {
-          break;
-        }
-        throw new ClassCastException("Was expecting value of type ShortArray for field 'shorts', but got " + value.getClass().getSimpleName());
       case INTS:
         if (value instanceof IntArray) {
           break;
         }
         throw new ClassCastException("Was expecting value of type IntArray for field 'ints', but got " + value.getClass().getSimpleName());
+      case LONGS:
+        if (value instanceof LongArray) {
+          break;
+        }
+        throw new ClassCastException("Was expecting value of type LongArray for field 'longs', but got " + value.getClass().getSimpleName());
+      case SHORTS:
+        if (value instanceof ShortArray) {
+          break;
+        }
+        throw new ClassCastException("Was expecting value of type ShortArray for field 'shorts', but got " + value.getClass().getSimpleName());
+      case DOUBLE_VAL:
+        if (value instanceof Double) {
+          break;
+        }
+        throw new ClassCastException("Was expecting value of type Double for field 'doubleVal', but got " + value.getClass().getSimpleName());
+      case FIRE_SERIES:
+        if (value instanceof FireSeries) {
+          break;
+        }
+        throw new ClassCastException("Was expecting value of type FireSeries for field 'fireSeries', but got " + value.getClass().getSimpleName());
+      case FIRE_VAL:
+        if (value instanceof FireTuple) {
+          break;
+        }
+        throw new ClassCastException("Was expecting value of type FireTuple for field 'fireVal', but got " + value.getClass().getSimpleName());
+      case INT_VAL:
+        if (value instanceof Integer) {
+          break;
+        }
+        throw new ClassCastException("Was expecting value of type Integer for field 'intVal', but got " + value.getClass().getSimpleName());
+      case LONG_VAL:
+        if (value instanceof Long) {
+          break;
+        }
+        throw new ClassCastException("Was expecting value of type Long for field 'longVal', but got " + value.getClass().getSimpleName());
+      case SHORT_VAL:
+        if (value instanceof Short) {
+          break;
+        }
+        throw new ClassCastException("Was expecting value of type Short for field 'shortVal', but got " + value.getClass().getSimpleName());
+      case TIME_SERIES:
+        if (value instanceof TimeSeries) {
+          break;
+        }
+        throw new ClassCastException("Was expecting value of type TimeSeries for field 'timeSeries', but got " + value.getClass().getSimpleName());
       default:
         throw new IllegalArgumentException("Unknown field id " + setField);
     }
@@ -275,11 +309,22 @@ public class DataValue extends org.apache.thrift.TUnion<DataValue, DataValue._Fi
     _Fields setField = _Fields.findByThriftId(field.id);
     if (setField != null) {
       switch (setField) {
-        case LONG_VAL:
-          if (field.type == LONG_VAL_FIELD_DESC.type) {
-            Long longVal;
-            longVal = iprot.readI64();
-            return longVal;
+        case DOUBLES:
+          if (field.type == DOUBLES_FIELD_DESC.type) {
+            DoubleArray doubles;
+            doubles = new DoubleArray();
+            doubles.read(iprot);
+            return doubles;
+          } else {
+            org.apache.thrift.protocol.TProtocolUtil.skip(iprot, field.type);
+            return null;
+          }
+        case INTS:
+          if (field.type == INTS_FIELD_DESC.type) {
+            IntArray ints;
+            ints = new IntArray();
+            ints.read(iprot);
+            return ints;
           } else {
             org.apache.thrift.protocol.TProtocolUtil.skip(iprot, field.type);
             return null;
@@ -294,41 +339,21 @@ public class DataValue extends org.apache.thrift.TUnion<DataValue, DataValue._Fi
             org.apache.thrift.protocol.TProtocolUtil.skip(iprot, field.type);
             return null;
           }
+        case SHORTS:
+          if (field.type == SHORTS_FIELD_DESC.type) {
+            ShortArray shorts;
+            shorts = new ShortArray();
+            shorts.read(iprot);
+            return shorts;
+          } else {
+            org.apache.thrift.protocol.TProtocolUtil.skip(iprot, field.type);
+            return null;
+          }
         case DOUBLE_VAL:
           if (field.type == DOUBLE_VAL_FIELD_DESC.type) {
             Double doubleVal;
             doubleVal = iprot.readDouble();
             return doubleVal;
-          } else {
-            org.apache.thrift.protocol.TProtocolUtil.skip(iprot, field.type);
-            return null;
-          }
-        case DOUBLES:
-          if (field.type == DOUBLES_FIELD_DESC.type) {
-            DoubleArray doubles;
-            doubles = new DoubleArray();
-            doubles.read(iprot);
-            return doubles;
-          } else {
-            org.apache.thrift.protocol.TProtocolUtil.skip(iprot, field.type);
-            return null;
-          }
-        case FIRE_VAL:
-          if (field.type == FIRE_VAL_FIELD_DESC.type) {
-            FireTuple fireVal;
-            fireVal = new FireTuple();
-            fireVal.read(iprot);
-            return fireVal;
-          } else {
-            org.apache.thrift.protocol.TProtocolUtil.skip(iprot, field.type);
-            return null;
-          }
-        case TIME_SERIES:
-          if (field.type == TIME_SERIES_FIELD_DESC.type) {
-            TimeSeries timeSeries;
-            timeSeries = new TimeSeries();
-            timeSeries.read(iprot);
-            return timeSeries;
           } else {
             org.apache.thrift.protocol.TProtocolUtil.skip(iprot, field.type);
             return null;
@@ -343,22 +368,49 @@ public class DataValue extends org.apache.thrift.TUnion<DataValue, DataValue._Fi
             org.apache.thrift.protocol.TProtocolUtil.skip(iprot, field.type);
             return null;
           }
-        case SHORTS:
-          if (field.type == SHORTS_FIELD_DESC.type) {
-            ShortArray shorts;
-            shorts = new ShortArray();
-            shorts.read(iprot);
-            return shorts;
+        case FIRE_VAL:
+          if (field.type == FIRE_VAL_FIELD_DESC.type) {
+            FireTuple fireVal;
+            fireVal = new FireTuple();
+            fireVal.read(iprot);
+            return fireVal;
           } else {
             org.apache.thrift.protocol.TProtocolUtil.skip(iprot, field.type);
             return null;
           }
-        case INTS:
-          if (field.type == INTS_FIELD_DESC.type) {
-            IntArray ints;
-            ints = new IntArray();
-            ints.read(iprot);
-            return ints;
+        case INT_VAL:
+          if (field.type == INT_VAL_FIELD_DESC.type) {
+            Integer intVal;
+            intVal = iprot.readI32();
+            return intVal;
+          } else {
+            org.apache.thrift.protocol.TProtocolUtil.skip(iprot, field.type);
+            return null;
+          }
+        case LONG_VAL:
+          if (field.type == LONG_VAL_FIELD_DESC.type) {
+            Long longVal;
+            longVal = iprot.readI64();
+            return longVal;
+          } else {
+            org.apache.thrift.protocol.TProtocolUtil.skip(iprot, field.type);
+            return null;
+          }
+        case SHORT_VAL:
+          if (field.type == SHORT_VAL_FIELD_DESC.type) {
+            Short shortVal;
+            shortVal = iprot.readI16();
+            return shortVal;
+          } else {
+            org.apache.thrift.protocol.TProtocolUtil.skip(iprot, field.type);
+            return null;
+          }
+        case TIME_SERIES:
+          if (field.type == TIME_SERIES_FIELD_DESC.type) {
+            TimeSeries timeSeries;
+            timeSeries = new TimeSeries();
+            timeSeries.read(iprot);
+            return timeSeries;
           } else {
             org.apache.thrift.protocol.TProtocolUtil.skip(iprot, field.type);
             return null;
@@ -374,41 +426,49 @@ public class DataValue extends org.apache.thrift.TUnion<DataValue, DataValue._Fi
   @Override
   protected void standardSchemeWriteValue(org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
     switch (setField_) {
-      case LONG_VAL:
-        Long longVal = (Long)value_;
-        oprot.writeI64(longVal);
+      case DOUBLES:
+        DoubleArray doubles = (DoubleArray)value_;
+        doubles.write(oprot);
+        return;
+      case INTS:
+        IntArray ints = (IntArray)value_;
+        ints.write(oprot);
         return;
       case LONGS:
         LongArray longs = (LongArray)value_;
         longs.write(oprot);
         return;
+      case SHORTS:
+        ShortArray shorts = (ShortArray)value_;
+        shorts.write(oprot);
+        return;
       case DOUBLE_VAL:
         Double doubleVal = (Double)value_;
         oprot.writeDouble(doubleVal);
-        return;
-      case DOUBLES:
-        DoubleArray doubles = (DoubleArray)value_;
-        doubles.write(oprot);
-        return;
-      case FIRE_VAL:
-        FireTuple fireVal = (FireTuple)value_;
-        fireVal.write(oprot);
-        return;
-      case TIME_SERIES:
-        TimeSeries timeSeries = (TimeSeries)value_;
-        timeSeries.write(oprot);
         return;
       case FIRE_SERIES:
         FireSeries fireSeries = (FireSeries)value_;
         fireSeries.write(oprot);
         return;
-      case SHORTS:
-        ShortArray shorts = (ShortArray)value_;
-        shorts.write(oprot);
+      case FIRE_VAL:
+        FireTuple fireVal = (FireTuple)value_;
+        fireVal.write(oprot);
         return;
-      case INTS:
-        IntArray ints = (IntArray)value_;
-        ints.write(oprot);
+      case INT_VAL:
+        Integer intVal = (Integer)value_;
+        oprot.writeI32(intVal);
+        return;
+      case LONG_VAL:
+        Long longVal = (Long)value_;
+        oprot.writeI64(longVal);
+        return;
+      case SHORT_VAL:
+        Short shortVal = (Short)value_;
+        oprot.writeI16(shortVal);
+        return;
+      case TIME_SERIES:
+        TimeSeries timeSeries = (TimeSeries)value_;
+        timeSeries.write(oprot);
         return;
       default:
         throw new IllegalStateException("Cannot write union with unknown field " + setField_);
@@ -420,49 +480,57 @@ public class DataValue extends org.apache.thrift.TUnion<DataValue, DataValue._Fi
     _Fields setField = _Fields.findByThriftId(fieldID);
     if (setField != null) {
       switch (setField) {
-        case LONG_VAL:
-          Long longVal;
-          longVal = iprot.readI64();
-          return longVal;
-        case LONGS:
-          LongArray longs;
-          longs = new LongArray();
-          longs.read(iprot);
-          return longs;
-        case DOUBLE_VAL:
-          Double doubleVal;
-          doubleVal = iprot.readDouble();
-          return doubleVal;
         case DOUBLES:
           DoubleArray doubles;
           doubles = new DoubleArray();
           doubles.read(iprot);
           return doubles;
-        case FIRE_VAL:
-          FireTuple fireVal;
-          fireVal = new FireTuple();
-          fireVal.read(iprot);
-          return fireVal;
-        case TIME_SERIES:
-          TimeSeries timeSeries;
-          timeSeries = new TimeSeries();
-          timeSeries.read(iprot);
-          return timeSeries;
-        case FIRE_SERIES:
-          FireSeries fireSeries;
-          fireSeries = new FireSeries();
-          fireSeries.read(iprot);
-          return fireSeries;
-        case SHORTS:
-          ShortArray shorts;
-          shorts = new ShortArray();
-          shorts.read(iprot);
-          return shorts;
         case INTS:
           IntArray ints;
           ints = new IntArray();
           ints.read(iprot);
           return ints;
+        case LONGS:
+          LongArray longs;
+          longs = new LongArray();
+          longs.read(iprot);
+          return longs;
+        case SHORTS:
+          ShortArray shorts;
+          shorts = new ShortArray();
+          shorts.read(iprot);
+          return shorts;
+        case DOUBLE_VAL:
+          Double doubleVal;
+          doubleVal = iprot.readDouble();
+          return doubleVal;
+        case FIRE_SERIES:
+          FireSeries fireSeries;
+          fireSeries = new FireSeries();
+          fireSeries.read(iprot);
+          return fireSeries;
+        case FIRE_VAL:
+          FireTuple fireVal;
+          fireVal = new FireTuple();
+          fireVal.read(iprot);
+          return fireVal;
+        case INT_VAL:
+          Integer intVal;
+          intVal = iprot.readI32();
+          return intVal;
+        case LONG_VAL:
+          Long longVal;
+          longVal = iprot.readI64();
+          return longVal;
+        case SHORT_VAL:
+          Short shortVal;
+          shortVal = iprot.readI16();
+          return shortVal;
+        case TIME_SERIES:
+          TimeSeries timeSeries;
+          timeSeries = new TimeSeries();
+          timeSeries.read(iprot);
+          return timeSeries;
         default:
           throw new IllegalStateException("setField wasn't null, but didn't match any of the case statements!");
       }
@@ -474,41 +542,49 @@ public class DataValue extends org.apache.thrift.TUnion<DataValue, DataValue._Fi
   @Override
   protected void tupleSchemeWriteValue(org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
     switch (setField_) {
-      case LONG_VAL:
-        Long longVal = (Long)value_;
-        oprot.writeI64(longVal);
+      case DOUBLES:
+        DoubleArray doubles = (DoubleArray)value_;
+        doubles.write(oprot);
+        return;
+      case INTS:
+        IntArray ints = (IntArray)value_;
+        ints.write(oprot);
         return;
       case LONGS:
         LongArray longs = (LongArray)value_;
         longs.write(oprot);
         return;
+      case SHORTS:
+        ShortArray shorts = (ShortArray)value_;
+        shorts.write(oprot);
+        return;
       case DOUBLE_VAL:
         Double doubleVal = (Double)value_;
         oprot.writeDouble(doubleVal);
-        return;
-      case DOUBLES:
-        DoubleArray doubles = (DoubleArray)value_;
-        doubles.write(oprot);
-        return;
-      case FIRE_VAL:
-        FireTuple fireVal = (FireTuple)value_;
-        fireVal.write(oprot);
-        return;
-      case TIME_SERIES:
-        TimeSeries timeSeries = (TimeSeries)value_;
-        timeSeries.write(oprot);
         return;
       case FIRE_SERIES:
         FireSeries fireSeries = (FireSeries)value_;
         fireSeries.write(oprot);
         return;
-      case SHORTS:
-        ShortArray shorts = (ShortArray)value_;
-        shorts.write(oprot);
+      case FIRE_VAL:
+        FireTuple fireVal = (FireTuple)value_;
+        fireVal.write(oprot);
         return;
-      case INTS:
-        IntArray ints = (IntArray)value_;
-        ints.write(oprot);
+      case INT_VAL:
+        Integer intVal = (Integer)value_;
+        oprot.writeI32(intVal);
+        return;
+      case LONG_VAL:
+        Long longVal = (Long)value_;
+        oprot.writeI64(longVal);
+        return;
+      case SHORT_VAL:
+        Short shortVal = (Short)value_;
+        oprot.writeI16(shortVal);
+        return;
+      case TIME_SERIES:
+        TimeSeries timeSeries = (TimeSeries)value_;
+        timeSeries.write(oprot);
         return;
       default:
         throw new IllegalStateException("Cannot write union with unknown field " + setField_);
@@ -518,24 +594,28 @@ public class DataValue extends org.apache.thrift.TUnion<DataValue, DataValue._Fi
   @Override
   protected org.apache.thrift.protocol.TField getFieldDesc(_Fields setField) {
     switch (setField) {
-      case LONG_VAL:
-        return LONG_VAL_FIELD_DESC;
-      case LONGS:
-        return LONGS_FIELD_DESC;
-      case DOUBLE_VAL:
-        return DOUBLE_VAL_FIELD_DESC;
       case DOUBLES:
         return DOUBLES_FIELD_DESC;
-      case FIRE_VAL:
-        return FIRE_VAL_FIELD_DESC;
-      case TIME_SERIES:
-        return TIME_SERIES_FIELD_DESC;
-      case FIRE_SERIES:
-        return FIRE_SERIES_FIELD_DESC;
-      case SHORTS:
-        return SHORTS_FIELD_DESC;
       case INTS:
         return INTS_FIELD_DESC;
+      case LONGS:
+        return LONGS_FIELD_DESC;
+      case SHORTS:
+        return SHORTS_FIELD_DESC;
+      case DOUBLE_VAL:
+        return DOUBLE_VAL_FIELD_DESC;
+      case FIRE_SERIES:
+        return FIRE_SERIES_FIELD_DESC;
+      case FIRE_VAL:
+        return FIRE_VAL_FIELD_DESC;
+      case INT_VAL:
+        return INT_VAL_FIELD_DESC;
+      case LONG_VAL:
+        return LONG_VAL_FIELD_DESC;
+      case SHORT_VAL:
+        return SHORT_VAL_FIELD_DESC;
+      case TIME_SERIES:
+        return TIME_SERIES_FIELD_DESC;
       default:
         throw new IllegalArgumentException("Unknown field id " + setField);
     }
@@ -556,46 +636,6 @@ public class DataValue extends org.apache.thrift.TUnion<DataValue, DataValue._Fi
   }
 
 
-  public long getLongVal() {
-    if (getSetField() == _Fields.LONG_VAL) {
-      return (Long)getFieldValue();
-    } else {
-      throw new RuntimeException("Cannot get field 'longVal' because union is currently set to " + getFieldDesc(getSetField()).name);
-    }
-  }
-
-  public void setLongVal(long value) {
-    setField_ = _Fields.LONG_VAL;
-    value_ = value;
-  }
-
-  public LongArray getLongs() {
-    if (getSetField() == _Fields.LONGS) {
-      return (LongArray)getFieldValue();
-    } else {
-      throw new RuntimeException("Cannot get field 'longs' because union is currently set to " + getFieldDesc(getSetField()).name);
-    }
-  }
-
-  public void setLongs(LongArray value) {
-    if (value == null) throw new NullPointerException();
-    setField_ = _Fields.LONGS;
-    value_ = value;
-  }
-
-  public double getDoubleVal() {
-    if (getSetField() == _Fields.DOUBLE_VAL) {
-      return (Double)getFieldValue();
-    } else {
-      throw new RuntimeException("Cannot get field 'doubleVal' because union is currently set to " + getFieldDesc(getSetField()).name);
-    }
-  }
-
-  public void setDoubleVal(double value) {
-    setField_ = _Fields.DOUBLE_VAL;
-    value_ = value;
-  }
-
   public DoubleArray getDoubles() {
     if (getSetField() == _Fields.DOUBLES) {
       return (DoubleArray)getFieldValue();
@@ -607,62 +647,6 @@ public class DataValue extends org.apache.thrift.TUnion<DataValue, DataValue._Fi
   public void setDoubles(DoubleArray value) {
     if (value == null) throw new NullPointerException();
     setField_ = _Fields.DOUBLES;
-    value_ = value;
-  }
-
-  public FireTuple getFireVal() {
-    if (getSetField() == _Fields.FIRE_VAL) {
-      return (FireTuple)getFieldValue();
-    } else {
-      throw new RuntimeException("Cannot get field 'fireVal' because union is currently set to " + getFieldDesc(getSetField()).name);
-    }
-  }
-
-  public void setFireVal(FireTuple value) {
-    if (value == null) throw new NullPointerException();
-    setField_ = _Fields.FIRE_VAL;
-    value_ = value;
-  }
-
-  public TimeSeries getTimeSeries() {
-    if (getSetField() == _Fields.TIME_SERIES) {
-      return (TimeSeries)getFieldValue();
-    } else {
-      throw new RuntimeException("Cannot get field 'timeSeries' because union is currently set to " + getFieldDesc(getSetField()).name);
-    }
-  }
-
-  public void setTimeSeries(TimeSeries value) {
-    if (value == null) throw new NullPointerException();
-    setField_ = _Fields.TIME_SERIES;
-    value_ = value;
-  }
-
-  public FireSeries getFireSeries() {
-    if (getSetField() == _Fields.FIRE_SERIES) {
-      return (FireSeries)getFieldValue();
-    } else {
-      throw new RuntimeException("Cannot get field 'fireSeries' because union is currently set to " + getFieldDesc(getSetField()).name);
-    }
-  }
-
-  public void setFireSeries(FireSeries value) {
-    if (value == null) throw new NullPointerException();
-    setField_ = _Fields.FIRE_SERIES;
-    value_ = value;
-  }
-
-  public ShortArray getShorts() {
-    if (getSetField() == _Fields.SHORTS) {
-      return (ShortArray)getFieldValue();
-    } else {
-      throw new RuntimeException("Cannot get field 'shorts' because union is currently set to " + getFieldDesc(getSetField()).name);
-    }
-  }
-
-  public void setShorts(ShortArray value) {
-    if (value == null) throw new NullPointerException();
-    setField_ = _Fields.SHORTS;
     value_ = value;
   }
 
@@ -680,8 +664,135 @@ public class DataValue extends org.apache.thrift.TUnion<DataValue, DataValue._Fi
     value_ = value;
   }
 
-  public boolean isSetLongVal() {
-    return setField_ == _Fields.LONG_VAL;
+  public LongArray getLongs() {
+    if (getSetField() == _Fields.LONGS) {
+      return (LongArray)getFieldValue();
+    } else {
+      throw new RuntimeException("Cannot get field 'longs' because union is currently set to " + getFieldDesc(getSetField()).name);
+    }
+  }
+
+  public void setLongs(LongArray value) {
+    if (value == null) throw new NullPointerException();
+    setField_ = _Fields.LONGS;
+    value_ = value;
+  }
+
+  public ShortArray getShorts() {
+    if (getSetField() == _Fields.SHORTS) {
+      return (ShortArray)getFieldValue();
+    } else {
+      throw new RuntimeException("Cannot get field 'shorts' because union is currently set to " + getFieldDesc(getSetField()).name);
+    }
+  }
+
+  public void setShorts(ShortArray value) {
+    if (value == null) throw new NullPointerException();
+    setField_ = _Fields.SHORTS;
+    value_ = value;
+  }
+
+  public double getDoubleVal() {
+    if (getSetField() == _Fields.DOUBLE_VAL) {
+      return (Double)getFieldValue();
+    } else {
+      throw new RuntimeException("Cannot get field 'doubleVal' because union is currently set to " + getFieldDesc(getSetField()).name);
+    }
+  }
+
+  public void setDoubleVal(double value) {
+    setField_ = _Fields.DOUBLE_VAL;
+    value_ = value;
+  }
+
+  public FireSeries getFireSeries() {
+    if (getSetField() == _Fields.FIRE_SERIES) {
+      return (FireSeries)getFieldValue();
+    } else {
+      throw new RuntimeException("Cannot get field 'fireSeries' because union is currently set to " + getFieldDesc(getSetField()).name);
+    }
+  }
+
+  public void setFireSeries(FireSeries value) {
+    if (value == null) throw new NullPointerException();
+    setField_ = _Fields.FIRE_SERIES;
+    value_ = value;
+  }
+
+  public FireTuple getFireVal() {
+    if (getSetField() == _Fields.FIRE_VAL) {
+      return (FireTuple)getFieldValue();
+    } else {
+      throw new RuntimeException("Cannot get field 'fireVal' because union is currently set to " + getFieldDesc(getSetField()).name);
+    }
+  }
+
+  public void setFireVal(FireTuple value) {
+    if (value == null) throw new NullPointerException();
+    setField_ = _Fields.FIRE_VAL;
+    value_ = value;
+  }
+
+  public int getIntVal() {
+    if (getSetField() == _Fields.INT_VAL) {
+      return (Integer)getFieldValue();
+    } else {
+      throw new RuntimeException("Cannot get field 'intVal' because union is currently set to " + getFieldDesc(getSetField()).name);
+    }
+  }
+
+  public void setIntVal(int value) {
+    setField_ = _Fields.INT_VAL;
+    value_ = value;
+  }
+
+  public long getLongVal() {
+    if (getSetField() == _Fields.LONG_VAL) {
+      return (Long)getFieldValue();
+    } else {
+      throw new RuntimeException("Cannot get field 'longVal' because union is currently set to " + getFieldDesc(getSetField()).name);
+    }
+  }
+
+  public void setLongVal(long value) {
+    setField_ = _Fields.LONG_VAL;
+    value_ = value;
+  }
+
+  public short getShortVal() {
+    if (getSetField() == _Fields.SHORT_VAL) {
+      return (Short)getFieldValue();
+    } else {
+      throw new RuntimeException("Cannot get field 'shortVal' because union is currently set to " + getFieldDesc(getSetField()).name);
+    }
+  }
+
+  public void setShortVal(short value) {
+    setField_ = _Fields.SHORT_VAL;
+    value_ = value;
+  }
+
+  public TimeSeries getTimeSeries() {
+    if (getSetField() == _Fields.TIME_SERIES) {
+      return (TimeSeries)getFieldValue();
+    } else {
+      throw new RuntimeException("Cannot get field 'timeSeries' because union is currently set to " + getFieldDesc(getSetField()).name);
+    }
+  }
+
+  public void setTimeSeries(TimeSeries value) {
+    if (value == null) throw new NullPointerException();
+    setField_ = _Fields.TIME_SERIES;
+    value_ = value;
+  }
+
+  public boolean isSetDoubles() {
+    return setField_ == _Fields.DOUBLES;
+  }
+
+
+  public boolean isSetInts() {
+    return setField_ == _Fields.INTS;
   }
 
 
@@ -690,23 +801,13 @@ public class DataValue extends org.apache.thrift.TUnion<DataValue, DataValue._Fi
   }
 
 
+  public boolean isSetShorts() {
+    return setField_ == _Fields.SHORTS;
+  }
+
+
   public boolean isSetDoubleVal() {
     return setField_ == _Fields.DOUBLE_VAL;
-  }
-
-
-  public boolean isSetDoubles() {
-    return setField_ == _Fields.DOUBLES;
-  }
-
-
-  public boolean isSetFireVal() {
-    return setField_ == _Fields.FIRE_VAL;
-  }
-
-
-  public boolean isSetTimeSeries() {
-    return setField_ == _Fields.TIME_SERIES;
   }
 
 
@@ -715,13 +816,28 @@ public class DataValue extends org.apache.thrift.TUnion<DataValue, DataValue._Fi
   }
 
 
-  public boolean isSetShorts() {
-    return setField_ == _Fields.SHORTS;
+  public boolean isSetFireVal() {
+    return setField_ == _Fields.FIRE_VAL;
   }
 
 
-  public boolean isSetInts() {
-    return setField_ == _Fields.INTS;
+  public boolean isSetIntVal() {
+    return setField_ == _Fields.INT_VAL;
+  }
+
+
+  public boolean isSetLongVal() {
+    return setField_ == _Fields.LONG_VAL;
+  }
+
+
+  public boolean isSetShortVal() {
+    return setField_ == _Fields.SHORT_VAL;
+  }
+
+
+  public boolean isSetTimeSeries() {
+    return setField_ == _Fields.TIME_SERIES;
   }
 
 

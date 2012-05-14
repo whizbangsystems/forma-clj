@@ -1,8 +1,104 @@
 (ns forma.schema
-  (:require [clojure.string :as s]
-            [forma.utils :as u]
+  (:require [forma.date-time :as date]
             [forma.reproject :as r]
-            [forma.date-time :as date]))
+            [forma.utils :as u]            
+            [clojure.string :as s])
+  (:import [forma.schema
+            ArrayValue
+            DataChunk
+            DataValue
+            DoubleArray
+            FireSeries
+            FireTuple
+            FormaSeries
+            FormaValue
+            IntArray
+            LocationProperty
+            LocationPropertyValue
+            LongArray
+            ModisChunkLocation
+            ModisPixelLocation
+            NeighborValue
+            NeighborValue
+            ShortArray
+            TimeSeries]
+           [org.apache.thrift TBase]
+           [java.util ArrayList]))
+
+(defprotocol Thrifster
+  (unpack [this keys])
+  (t-keys [this])
+  (t-val [this key]))
+
+(defprotocol TBone
+  (field-id [this key metaDataMap])
+  (field-keys [this metaDataMap])
+  (field-map [this metaDataMap])
+  (field-names [this metaDataMap])
+  (field-value [this key metaDataMap]))
+
+(extend-type TBase
+  TBone 
+  (field-id [this key metaDataMap]
+    "Returns the Thrift field id for a given key."
+    (.getThriftFieldId ((field-map this metaDataMap) key)))  
+  (field-keys [this metaDataMap]
+    "Returns all field name keys."
+    (map keyword (map #(.getFieldName %) (keys metaDataMap))))
+  (field-map [this metaDataMap]
+    "Returns a mapping of field name keys to fields."
+    (zipmap
+     (field-keys this metaDataMap)
+     (keys metaDataMap)))
+  (field-names [this metaDataMap]
+    "Returns a vector of field names."
+    (map #(.getFieldName %) (keys metaDataMap)))  
+  (field-value [this key metaDataMap]
+    "Returns the Thrift value for the given key."
+    (.getFieldValue this ((field-map this metaDataMap) key))))
+
+(extend-type FireTuple
+  Thrifster
+  (unpack [this keys]
+    "Returns a vector of Thrift values in the order specified by keys."
+    (map #(field-value this % FireTuple/metaDataMap) keys))    
+  (t-keys [this]
+    "Returns all field name keys."
+    (field-keys this FireTuple/metaDataMap))
+  (t-val [this key]
+    "Returns the Thrift value for the given key."
+    (field-value this key FireTuple/metaDataMap)))
+
+
+;; (extend-type FireTuple
+
+;;   Thrifster
+
+;;   (unpack [this keys]
+;;     "Returns a vector of Thrift values in the order specified by keys."
+;;     (map #(field-value this %) keys))
+    
+;;   (field-id [this key]
+;;     "Returns the Thrift field id for a given key."
+;;     (.getThriftFieldId ((field-map this) key)))
+  
+;;   (field-keys [this]
+;;     "Returns all field name keys."
+;;     (map keyword (map #(.getFieldName %) (keys (FireTuple/metaDataMap)))))
+
+;;   (field-map [this]
+;;     "Returns a mapping of field name keys to fields."
+;;     (zipmap
+;;      (field-keys this)
+;;      (keys (FireTuple/metaDataMap))))
+
+;;   (field-names [this]
+;;     "Returns a vector of field names."
+;;     (map #(.getFieldName %) (keys (FireTuple/metaDataMap))))
+  
+;;   (field-value [this key]
+;;     "Returns the Thrift value for the given key."
+;;     (.getFieldValue this ((field-map this) key))))
 
 (defn boundaries
   "Accepts a sequence of pairs of <initial time period, collection>

@@ -63,6 +63,7 @@ union ArrayValue {
   4: IntArray ints;
 }
 
+
 struct TimeSeries {
   1: i32 startIdx;
   2: i32 endIdx;
@@ -70,15 +71,17 @@ struct TimeSeries {
 }
 
 union DataValue {
-  1: i64 longVal;
-  2: LongArray longs;
-  3: double doubleVal;
-  4: DoubleArray doubles;
-  5: FireTuple fireVal;
-  6: TimeSeries timeSeries;
-  7: FireSeries fireSeries;
-  8: ShortArray shorts;
-  9: IntArray ints;
+  1: DoubleArray doubles;
+  2: IntArray ints;
+  3: LongArray longs;
+  4: ShortArray shorts;
+  5: double doubleVal;
+  6: FireSeries fireSeries;
+  7: FireTuple fireVal;
+  8: i32 intVal;
+  9: i64 longVal;
+  10: i16 shortVal;
+  11: TimeSeries timeSeries;
 }
 
 struct ModisPixelLocation {
