@@ -25,20 +25,31 @@
            [org.apache.thrift TBase]
            [java.util ArrayList]))
 
+;; Multimethod for accessing a Thrift object metaDataMap of fields.
+(defmulti metadata class)
+
+;; Returns the metaDataMap for the given Thrift object class.
+(defmethod metadata :default [t] (class t)
+  (let [s (str (.getName (class t)) "/metaDataMap")]
+    (load-string s)))
+
 (defprotocol Thrifster
+  "A hipster protocol for interacting with Thrift objects."
   (unpack [this keys])
   (t-keys [this])
   (t-val [this key]))
 
 (defprotocol TBone
+  "Protocol for accessing TBase field information."
   (field-id [this key metaDataMap])
   (field-keys [this metaDataMap])
   (field-map [this metaDataMap])
   (field-names [this metaDataMap])
   (field-value [this key metaDataMap]))
 
+;; Extend TBase with common functions for accessing Thrift object field information.
 (extend-type TBase
-  TBone 
+  TBone
   (field-id [this key metaDataMap]
     "Returns the Thrift field id for a given key."
     (.getThriftFieldId ((field-map this metaDataMap) key)))  
@@ -57,48 +68,18 @@
     "Returns the Thrift value for the given key."
     (.getFieldValue this ((field-map this metaDataMap) key))))
 
+;; Extend FireTuple with Thrifter protocol.
 (extend-type FireTuple
   Thrifster
   (unpack [this keys]
     "Returns a vector of Thrift values in the order specified by keys."
-    (map #(field-value this % FireTuple/metaDataMap) keys))    
+    (map #(field-value this % (metadata this)) keys))    
   (t-keys [this]
     "Returns all field name keys."
-    (field-keys this FireTuple/metaDataMap))
+    (field-keys this (metadata this)))
   (t-val [this key]
     "Returns the Thrift value for the given key."
-    (field-value this key FireTuple/metaDataMap)))
-
-
-;; (extend-type FireTuple
-
-;;   Thrifster
-
-;;   (unpack [this keys]
-;;     "Returns a vector of Thrift values in the order specified by keys."
-;;     (map #(field-value this %) keys))
-    
-;;   (field-id [this key]
-;;     "Returns the Thrift field id for a given key."
-;;     (.getThriftFieldId ((field-map this) key)))
-  
-;;   (field-keys [this]
-;;     "Returns all field name keys."
-;;     (map keyword (map #(.getFieldName %) (keys (FireTuple/metaDataMap)))))
-
-;;   (field-map [this]
-;;     "Returns a mapping of field name keys to fields."
-;;     (zipmap
-;;      (field-keys this)
-;;      (keys (FireTuple/metaDataMap))))
-
-;;   (field-names [this]
-;;     "Returns a vector of field names."
-;;     (map #(.getFieldName %) (keys (FireTuple/metaDataMap))))
-  
-;;   (field-value [this key]
-;;     "Returns the Thrift value for the given key."
-;;     (.getFieldValue this ((field-map this) key))))
+    (field-value this key (metadata this))))
 
 (defn boundaries
   "Accepts a sequence of pairs of <initial time period, collection>
