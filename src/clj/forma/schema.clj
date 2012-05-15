@@ -1,4 +1,20 @@
 (ns forma.schema
+  "This namespace provides functions for converting Clojure data into Thrift
+  objects and converting Thrift objects back into Clojure data. Thrift object
+  IDL is in the dev/forma.thrift file.
+
+  Usage example:
+
+    ;; Convert Clojure data into a FireTuple Thrift object:
+    forma.schema> (def t (thrifter FireTuple 1 2 3 4))
+    forma.schema> t
+    #<FireTuple FireTuple(temp330:1, conf50:2, bothPreds:3, count:4)>
+
+    ;; Convert a FireTuple Thrift object back into Clojure data:
+    forma.schema> (unpack t)
+    (1 2 3 4)
+    forma.schema> (unpack t [:conf50 :count])
+    (2 4)"
   (:require [forma.date-time :as date]
             [forma.reproject :as r]
             [forma.utils :as u]            
@@ -25,6 +41,18 @@
            [org.apache.thrift TBase]
            [java.util ArrayList]))
 
+;; Method for converting a vector of arguments into a Thrift object.
+(defmulti thrifter (fn [c & args] c))
+
+;; Usage: (thrifter FireTuple 1 2 3 4)
+(defmethod thrifter FireTuple [c & args]
+  (let [[temp330 conf50 bothpreds count] args]
+    (FireTuple. temp330 conf50 bothpreds count)))
+
+;; TODO
+(defmethod thrifter ArrayValue [c & args]
+  args)
+
 ;; Multimethod for accessing a Thrift object metaDataMap of fields.
 (defmulti metadata class)
 
@@ -35,7 +63,7 @@
 
 (defprotocol Thrifster
   "A hipster protocol for interacting with Thrift objects."
-  (unpack [this keys])
+  (unpack [this] [this keys])
   (t-keys [this])
   (t-val [this key]))
 
@@ -71,9 +99,12 @@
 ;; Extend FireTuple with Thrifter protocol.
 (extend-type FireTuple
   Thrifster
-  (unpack [this keys]
-    "Returns a vector of Thrift values in the order specified by keys."
-    (map #(field-value this % (metadata this)) keys))    
+  (unpack
+    ([this]
+       (map #(field-value this % (metadata this)) (t-keys this)))
+    ([this keys]
+       "Returns a vector of Thrift values in the order specified by keys."
+       (map #(field-value this % (metadata this)) keys)))
   (t-keys [this]
     "Returns all field name keys."
     (field-keys this (metadata this)))
