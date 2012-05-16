@@ -100,13 +100,9 @@ struct ModisChunkLocation {
   5: i32 chunkSize;
 }
 
-union LocationPropertyValue {
+struct LocationProperty {
   1: ModisPixelLocation pixelLocation;
   2: ModisChunkLocation chunkLocation;
-}
-
-struct LocationProperty {
-  1: LocationPropertyValue property;
 }
 
 struct DataChunk {
